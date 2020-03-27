@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+html {
+  --placeholder-color: #707070;
+}
+body, body.simrad {
+  --logo-image: url('assets/simrad.svg');
+  --accent-color: #333F48;
+}
+body.b-and-g {
+  --logo-image: url('assets/b-and-g.svg');
+  --accent-color: #C9DD0A;
+}
+body.lowrance {
+  --logo-image: url('assets/lowrance.svg');
+  --accent-color: #1C3F94;
+}
+body.c-map {
+  --logo-image: url('assets/c-map.svg');
+  --accent-color: #FF5629;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+a {
+  color: #1063C4;
+}
+
+
+.btn {
+  display: block;
+  width: 90%;
+  --btn-height: 50px;
+  height: var(--btn-height);
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: calc(var(--btn-height) / 2);
+  border: 1px solid black;
+  background-color: yellow;
+  color: white;
+  font-size: inherit;
+  font-weight: 500;
+}
+.btn:disabled {
+  cursor: default;
+  --disabled-color: #B1B1B1;
+  background-color: var(--disabled-color);
+  border-color: var(--disabled-color);
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 375px;
+  min-height: 650px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+
+.container > .logo {
+  height: 40px;
+  background-image: var(--logo-image);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container > .header {
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  font-size: 24px;
+  margin: 15px 0;
+  position: relative;
+}
+.container > .header .back {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  left: 0;
+  background: url('assets/back.svg') center no-repeat;
+}
+
+
+form {
+  --error-color: #CF3636;
+  padding: 0 20px;
+}
+form .input-wrapper {
+  margin: 55px 0;
+  position: relative;
+}
+form .input-wrapper input,
+form .input-wrapper.invalid input:placeholder-shown {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 17px 50px 17px 15px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  color: rgba(0,0,0,0.7);
+}
+form .input-wrapper input:placeholder-shown {
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 6px;
+  padding: 18px 50px 18px 15px;
+}
+form .input-wrapper.invalid input {
+  border-color: var(--error-color) !important;
+}
+form .input-wrapper label,
+form .input-wrapper .error {
+  position: absolute;
+  left: 10px;
+  top: -5px;
+  padding: 0px 5px;
+  background-color: white;
+  color: var(--placeholder-color);
+  font-size: 10px;
+}
+form .input-wrapper .error,
+form .input-wrapper.invalid label {
+  color: var(--error-color);
+}
+form .input-wrapper:not(.invalid) .error {
+  display: none;
+}
+form .input-wrapper:not(.invalid) input:placeholder-shown ~ label,
+form .input-wrapper.invalid .error {
+  font-size: 12px;
+  top: auto;
+  bottom: -19px;
+}
+form .input-wrapper input ~ .icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 55px;
+  background: url('assets/edit.svg') center no-repeat;
+}
+form .input-wrapper input:placeholder-shown ~ .icon {
+  display: none;
+}
+form .btn {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  font-size: 18px;
+}
+
+.social {
+  --border-color: #CBCBCB;
+  margin-top: 70px;
+  padding: 0 20px;
+}
+.social .header {
+  color: var(--placeholder-color);
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 17px;
+  font-weight: 300;
+}
+.social .header span {
+  position: relative;
+  top: -11px;
+  padding: 0 20px;
+  background-color: white;
+}
+.social .btn {
+  margin-top: 15px;
+  text-align: left;
+  padding-left: 56px;
+  font-size: 15px;
+  background: url('assets/edit.svg') 18px no-repeat;
+}
+.social .btn.gmail {
+  background-image: url('assets/google.svg');
+  background-color: white;
+  border-color: var(--border-color);
+  color: black;
+}
+.social .btn.facebook {
+  background-image: url('assets/facebook.svg');
+  --btn-color: #1976D2;
+  background-color: var(--btn-color);
+  border-color: var(--btn-color);
+}
+.social .btn.microsoft {
+  background-image: url('assets/microsoft.svg');
+  --btn-color: #41B6FF;
+  background-color: var(--btn-color);
+  border-color: var(--btn-color);
+}
+
+.forgot {
+  margin-top: 36px;
+  text-align: center;
+}

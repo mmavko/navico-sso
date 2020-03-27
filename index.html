@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<style>
+  .wrapper {
+    width: 500px;
+    height: 700px;
+    resize: both;
+    overflow: hidden;
+    border: 2px inset;
+  }
+  .wrapper iframe {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const f = document.querySelector('iframe');
+    document.querySelector('form').addEventListener('input', e => {
+      const {page, brand, valid} = Object.fromEntries(new FormData(e.currentTarget).entries());
+      const isValid = JSON.parse(valid);
+      f.src = `pages/${page}.html`;
+      setTimeout(() => {
+        f.contentDocument.body.classList.add(brand);
+        f.contentDocument.querySelector('form .input-wrapper').classList.toggle('invalid', !isValid);
+        f.contentDocument.querySelector('form button').disabled = !isValid;
+      }, 100);
+    });
+  });
+</script>
+
+<form>
+  <strong>Brand:</strong>
+  <label><input type="radio" name="brand" value="simrad" checked /> simrad</label>
+  <label><input type="radio" name="brand" value="b-and-g" /> b-and-g</label>
+  <label><input type="radio" name="brand" value="lowrance" /> lowrance</label>
+  <label><input type="radio" name="brand" value="c-map" /> c-map</label>
+  <br />
+  <strong>Validity:</strong>
+  <label><input type="radio" name="valid" value="true" /> valid</label>
+  <label><input type="radio" name="valid" value="false" checked /> invalid</label>
+  <br />
+  <strong>Page:</strong>
+  <label><input type="radio" name="page" value="email" checked /> email</label>
+  <label><input type="radio" name="page" value="password" /> password</label>
+  <br />
+</form>
+
+<div class="wrapper">
+  <iframe src="pages/email.html" />
+</div>
