@@ -5,18 +5,22 @@ html {
 }
 body, body.simrad {
   --logo-image: url('assets/simrad.svg');
+  --ok-image: url('assets/ok-simrad.svg');
   --accent-color: #333F48;
 }
 body.b-and-g {
   --logo-image: url('assets/b-and-g.svg');
+  --ok-image: url('assets/ok-b-and-g.svg');
   --accent-color: #C9DD0A;
 }
 body.lowrance {
   --logo-image: url('assets/lowrance.svg');
+  --ok-image: url('assets/ok-lowrance.svg');
   --accent-color: #1C3F94;
 }
 body.c-map {
   --logo-image: url('assets/c-map.svg');
+  --ok-image: url('assets/ok-c-map.svg');
   --accent-color: #FF5629;
 }
 
@@ -205,4 +209,13 @@ form .btn {
 .bottom-text {
   margin-top: 36px;
   text-align: center;
+}
+.bottom-text strong {
+  font-size: 17px;
+  font-weight: 500;
+}
+.ok {
+  margin-top: 40px;
+  height: 250px;
+  background: var(--ok-image) center 0 no-repeat;
 }
