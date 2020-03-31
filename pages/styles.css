@@ -32,6 +32,9 @@ body {
 a {
   color: #1063C4;
 }
+input:focus {
+  outline-color: var(--accent-color);
+}
 
 
 .btn {
