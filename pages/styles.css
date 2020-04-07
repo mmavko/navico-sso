@@ -32,8 +32,11 @@ body {
 a {
   color: #1063C4;
 }
+*:focus {
+  outline-color: #333;
+}
 input:focus {
-  outline-color: var(--accent-color);
+  outline: none;
 }
 
 
@@ -106,18 +109,22 @@ form .input-wrapper {
   margin: 55px 0;
   position: relative;
 }
-form .input-wrapper input,
-form .input-wrapper.invalid input:placeholder-shown {
-  border: 2px solid black;
-  border-radius: 4px;
-  padding: 17px 50px 17px 15px;
+form .input-wrapper input {
   width: 100%;
   box-sizing: border-box;
   font-family: inherit;
   font-size: inherit;
   color: rgba(0,0,0,0.7);
 }
-form .input-wrapper input:placeholder-shown {
+
+/* input borders */
+form .input-wrapper input,
+form .input-wrapper.invalid input:not(:focus) {
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 17px 50px 17px 15px;
+}
+form .input-wrapper input:not(:focus) {
   border: 1px solid rgba(0,0,0,0.3);
   border-radius: 6px;
   padding: 18px 50px 18px 15px;
@@ -125,6 +132,8 @@ form .input-wrapper input:placeholder-shown {
 form .input-wrapper.invalid input {
   border-color: var(--error-color) !important;
 }
+
+/* input labels */
 form .input-wrapper label,
 form .input-wrapper .error {
   position: absolute;
@@ -142,12 +151,14 @@ form .input-wrapper.invalid label {
 form .input-wrapper:not(.invalid) .error {
   display: none;
 }
-form .input-wrapper:not(.invalid) input:placeholder-shown ~ label,
+form .input-wrapper:not(.invalid) input:not(:focus) ~ label,
 form .input-wrapper.invalid .error {
   font-size: 12px;
   top: auto;
   bottom: -19px;
 }
+
+/* input icon */
 form .input-wrapper input ~ .icon {
   position: absolute;
   top: 0;
@@ -156,9 +167,10 @@ form .input-wrapper input ~ .icon {
   height: 55px;
   background: url('assets/edit.svg') center no-repeat;
 }
-form .input-wrapper input:placeholder-shown ~ .icon {
+form .input-wrapper input:not(:focus) ~ .icon {
   display: none;
 }
+
 form .btn {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
